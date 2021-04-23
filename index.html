@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+ <meta charset='utf-8'>
+ <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+ <link rel="icon" href="bessel.png">
+ <link rel="stylesheet" type="text/css" href="bessel.css">
+ <script src='bessel.js'></script>
+</head>
+
+<body>
+<div class='outer'>
+ <div class='middle'>
+  <div class='inner'>
+    
+   <div id='header'>
+    <h2>Bessel correction</h2>
+    <h3>Biased estimates of sample variances from a standard normal distribution <span><i>N</i>(0,1)</span> w sample size n</h3>
+    <p style='border-bottom: 1px solid #999'></p>
+   </div>
+   
+   <div id='main'>
+    <p> The theoretical variance, <strong>&sigma;<sup>2</sup></strong> of <strong><i>N</i>(0,1)</strong> is 1. </p>
+    <p> But when you don't know the distribution, the best you can do is draw samples from that distribution and try to estimate the variance.</p>
+    <p> To estiamte the variance, <strong>s<sup>2</sup></strong>, take a sample of size <span>n</span> from <strong><i>N</i>(0,1)</strong>, and calculate <span><strong>s<sup>2</sup> = <span class='math'>(1/n-1) &Sigma; (x-x&#772;)<sup>2</sup></strong></span>.</p>
+    <p> The <strong>(n-1)</strong> bit is confusing, so let's look at that. </p>
+    <p> If you use <strong>(1/n)</strong>, you'll systematically underestimate the variance because the mean you calculate, <strong>x&#772;</strong>, will be closer to the realizations in a given sample than the theoretical mean, <strong>&mu;</strong>. So the sum of squares <strong>&Sigma; (x-x&#772;)<sup>2</sup></strong> is downward biased. Nerds proved this mathematically a long time ago.</p>
+    <p> This animation shows that. We're taking <span id='count'>0</span> samples of sample size <strong>n</strong>, calculating <strong>s<sup>2</sup></strong> for each sample, then taking the average to make <span style='font-weight: bold; border-top: 2px solid black;'>s<sup>2</sup></span>.</p>
+    </div>
+      
+    <div id='animation-container'>
+     <table id='my-animation-table'>
+      <tr id='box-header-row'><td><div>sample size</div></td><td><strong>n</strong></td></tr>
+      <tr id='box-container-row'><td>
+       <div class='outer'><div class='middle'><div class='inner' style='border: none;'>
+       <div class='legend'><div class='biased'></div><div>biased</div></div>
+       <div class='legend'><div class='unbiased'></div><span>unbiased</span></div>
+       </div></div></div>
+      </td><td><div></div></td></tr>
+      <tr id='infobox-row'><td><div>avg est sample variance</td><td> <span style='font-weight: bold; border-top: 2px solid black;'>s<sup>2</sup></span></div></td></tr>
+      <tr id='theoretical-bias-row'><td><div>theoretical bias</div></td><td> <strong>(n-1)/n</strong></td></tr>
+     </table>
+    </div>
+   
+   </div>
+  </div>
+ </div>
+</div>
+
+</body>
+</html>
