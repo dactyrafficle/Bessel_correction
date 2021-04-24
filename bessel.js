@@ -6,17 +6,10 @@ window.onload = function() {
  let theoreticalBiasRow = document.getElementById('theoretical-bias-row');
 
  let boxes = [];
- boxes.push(new Box(2));
- boxes.push(new Box(3));
- boxes.push(new Box(4));
- boxes.push(new Box(5));
- boxes.push(new Box(6));
- boxes.push(new Box(7));
- boxes.push(new Box(8));
- boxes.push(new Box(9));
- boxes.push(new Box(10));
- boxes.push(new Box(30));
- boxes.push(new Box(100));
+ [2,3,4,5,6,7,8,9,10,30,100].forEach(function(x) {
+   boxes.push(new Box(x));
+ });
+
  
  for (let i = 0; i < boxes.length; i++) {
   let td_0 = document.createElement('td');
@@ -41,7 +34,6 @@ window.onload = function() {
  let count = 0;
  let x = setInterval(function() {
   count++;
-  console.log(count);
   countEl.innerHTML = count;
   for (let i = 0; i < boxes.length; i++) {
    let b = boxes[i];
@@ -53,10 +45,10 @@ window.onload = function() {
    b.calculateAverageVariance();
    b.displayAverageVariance();
   }
-  if (count >= 250) {
+  if (count >= 10000) {
    clearInterval(x);
   }
- }, 100);
+ }, 50);
 
 }
 
