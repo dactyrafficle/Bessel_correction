@@ -1,6 +1,6 @@
-# bessel
-animation of bessel correction
+# Bessel_correction
+Little animation of the Bessel correction
 
-Here's a simple animation on the Bessel correction. That's that thing in stats where we divide by (n-1) instead of n.
+That's the thing in stats where you sometimes need to divide by (n-1) instead of n.
 
-https://dactyrafficle.github.io/bessel/
+https://dactyrafficle.github.io/Bessel_correction/
